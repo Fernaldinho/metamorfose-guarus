@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #050505;
+  --color-base2: #0b0b0b;
+  --color-card: #111111;
+  --color-card2: #181818;
+  --color-border: #2a2a2a;
+  --color-muted: #b8b8b8;
+  --color-primary: #e60000;
+  --color-primary-strong: #ff0000;
+  --color-primary-dark: #b80000;
+  --font-display: "Outfit", "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #ffffff;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: #e60000;
+  color: #fff;
+}
+
+/* reveal on scroll (leve, respeita reduced motion) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* focos visiveis */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* scrollbar escura */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e60000;
+}

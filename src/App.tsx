@@ -1,0 +1,51 @@
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header";
+import { WhatsAppFloat } from "./components/layout/WhatsAppFloat";
+import { CtaFinal } from "./components/sections/CtaFinal";
+import { DestaqueTransformacao } from "./components/sections/DestaqueTransformacao";
+import { Diferenciais } from "./components/sections/Diferenciais";
+import { Hero } from "./components/sections/Hero";
+import { Localizacao } from "./components/sections/Localizacao";
+import { Modalidades } from "./components/sections/Modalidades";
+import { NossaMetamorfose } from "./components/sections/NossaMetamorfose";
+import { Planos } from "./components/sections/Planos";
+import { ProvaSocial } from "./components/sections/ProvaSocial";
+import { SocialProofBar } from "./components/sections/SocialProofBar";
+import { useReveal } from "./hooks/useReveal";
+
+function App() {
+  useReveal();
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-white antialiased">
+      <Header />
+      <main className="pt-[72px] md:pt-[80px]">
+        {/* 1. IMPACTO */}
+        <Hero />
+        {/* 2. CREDIBILIDADE */}
+        <SocialProofBar />
+        {/* 3. IDENTIDADE */}
+        <NossaMetamorfose />
+        {/* 4. MODALIDADES */}
+        <Modalidades />
+        {/* 5. DIFERENCIAIS */}
+        <Diferenciais />
+        {/* 6. TRANSFORMAÇÃO */}
+        <DestaqueTransformacao />
+        {/* 7. CONVERSÃO */}
+        <Planos />
+        {/* 8. LOCALIZAÇÃO */}
+        <Localizacao />
+        {/* 9. PROVA SOCIAL */}
+        <ProvaSocial />
+        {/* 11. CTA FINAL */}
+        <CtaFinal />
+      </main>
+      {/* 12. FOOTER */}
+      <Footer />
+      <WhatsAppFloat />
+    </div>
+  );
+}
+
+export default App;
