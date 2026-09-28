@@ -38,9 +38,6 @@ export function Hero() {
           <WhatsAppButton href={whatsappLink(WA_MESSAGES.hero)}>
             Matricule-se <ArrowRight size={16} />
           </WhatsAppButton>
-          <WhatsAppButton variant="outline" href={whatsappLink(WA_MESSAGES.conheca)}>
-            Conheça a academia <ArrowRight size={16} />
-          </WhatsAppButton>
         </div>
         <div className="reveal mt-6">
           <span className="inline-flex items-center gap-2 text-sm border border-[#2A2A2A] bg-white/[0.06] rounded-full px-4 py-2">
