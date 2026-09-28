@@ -1,5 +1,6 @@
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
+import { ScrollProgress } from "./components/layout/ScrollProgress";
 import { WhatsAppFloat } from "./components/layout/WhatsAppFloat";
 import { CtaFinal } from "./components/sections/CtaFinal";
 import { DestaqueTransformacao } from "./components/sections/DestaqueTransformacao";
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white antialiased">
+      <ScrollProgress />
       <Header />
       <main className="pt-[72px] md:pt-[80px]">
         {/* 1. IMPACTO */}
@@ -40,6 +42,7 @@ function App() {
         <Localizacao />
         {/* 9. PROVA SOCIAL */}
         <ProvaSocial />
+        <Marquee variant="outline" reverse />
         {/* 11. CTA FINAL */}
         <CtaFinal />
       </main>

@@ -6,7 +6,7 @@ export function NossaMetamorfose() {
     <Section className="py-16 md:py-24">
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <div className="reveal">
-          <SectionTitle>
+          <SectionTitle eyebrow="Nossa essência">
             Mais que treino. <Red>Uma transformação.</Red>
           </SectionTitle>
           <p className="mt-6 text-[#B8B8B8] leading-relaxed">

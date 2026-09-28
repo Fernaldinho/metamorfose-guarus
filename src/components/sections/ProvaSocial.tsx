@@ -5,7 +5,7 @@ import { Red, Section, SectionTitle } from "../ui/Section";
 export function ProvaSocial() {
   return (
     <Section className="py-16 md:py-24">
-      <SectionTitle align="center">
+      <SectionTitle align="center" eyebrow="Avaliações">
         Quem treina, <Red>recomenda.</Red>
       </SectionTitle>
       <div className="reveal mt-4 flex items-center justify-center gap-2">
@@ -22,7 +22,7 @@ export function ProvaSocial() {
         {REVIEWS.map((r) => (
           <figure
             key={r.text}
-            className="reveal rounded-[12px] border border-[#2A2A2A] bg-[#111111] p-6 hover:border-[#E60000] transition-colors"
+            className="reveal glow-card rounded-[12px] border border-[#2A2A2A] bg-[#111111] p-6 hover:border-[#E60000] transition-colors"
           >
             <span className="font-display text-5xl leading-none text-[#E60000]">“</span>
             <blockquote className="mt-1 text-sm leading-relaxed text-white">

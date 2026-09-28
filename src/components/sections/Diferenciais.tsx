@@ -31,7 +31,7 @@ const ITEMS = [
 export function Diferenciais() {
   return (
     <Section id="diferenciais" className="py-16 md:py-24">
-      <SectionTitle align="center">
+      <SectionTitle align="center" eyebrow="Diferenciais">
         Por que <Red>Metamorfose?</Red>
       </SectionTitle>
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -39,7 +39,7 @@ export function Diferenciais() {
           <div
             key={it.n}
             style={{ transitionDelay: `${i * 90}ms` }}
-            className="reveal rounded-[12px] border border-[#2A2A2A] bg-[#111111] p-6 hover:border-[#E60000] hover:-translate-y-1 transition-all duration-300"
+            className="reveal glow-card rounded-[12px] border border-[#2A2A2A] bg-[#111111] p-6 hover:border-[#E60000] hover:-translate-y-1 transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <span className="font-display text-4xl font-extrabold text-[#E60000]">

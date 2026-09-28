@@ -18,7 +18,7 @@ export function Localizacao() {
     <Section className="py-16 md:py-24 bg-[#0B0B0B] border-t border-[#2A2A2A]">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
         <div className="reveal">
-          <SectionTitle>
+          <SectionTitle eyebrow="Onde estamos">
             Venha <Red>nos conhecer.</Red>
           </SectionTitle>
           <h3 className="mt-6 font-display font-extrabold uppercase text-lg">

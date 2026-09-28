@@ -21,7 +21,7 @@ const PLANS = [
 export function Planos() {
   return (
     <Section id="planos" className="py-16 md:py-24 bg-[#0B0B0B] border-y border-[#2A2A2A]">
-      <SectionTitle align="center">
+      <SectionTitle align="center" eyebrow="Planos">
         Escolha <Red>seu plano.</Red>
       </SectionTitle>
       <p className="reveal mt-3 text-center text-[#B8B8B8]">
@@ -32,8 +32,8 @@ export function Planos() {
         {PLANS.map((p) => (
           <div
             key={p.name + String(p.featured)}
-            className={`reveal relative rounded-[12px] border bg-[#111111] p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-              p.featured ? "border-[#E60000]" : "border-[#2A2A2A] hover:border-[#E60000]"
+            className={`reveal glow-card relative rounded-[12px] border bg-[#111111] p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+              p.featured ? "border-[#E60000] plan-featured shadow-[0_0_45px_rgba(230,0,0,0.3)]" : "border-[#2A2A2A] hover:border-[#E60000]"
             }`}
           >
             {p.featured && (

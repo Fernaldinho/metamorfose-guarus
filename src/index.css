@@ -209,12 +209,100 @@ button:focus-visible {
   animation: float-y 5s ease-in-out infinite;
 }
 
+/* ===== nivel extra: impacto ===== */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rot-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px rgba(230, 0, 0, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 32px rgba(255, 0, 0, 0.75));
+  }
+}
+
+/* texto vazado (outline) */
+.text-stroke {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  color: transparent;
+}
+.text-stroke-red {
+  -webkit-text-stroke: 1.5px #e60000;
+  color: transparent;
+}
+/* degradê vermelho */
+.text-gradient-red {
+  background: linear-gradient(100deg, #ff4d4d, #e60000 45%, #7a0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* cards com brilho no hover */
+.glow-card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.glow-card:hover {
+  box-shadow:
+    0 14px 55px rgba(230, 0, 0, 0.35),
+    0 0 0 1px rgba(230, 0, 0, 0.6);
+}
+
+/* faixa reversa */
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+  animation-duration: 30s;
+}
+
+/* borda conica animada (plano destaque) */
+.plan-featured {
+  position: relative;
+}
+.plan-featured::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--angle),
+    #ff0000,
+    #4d0000,
+    #ff7a7a,
+    #ff0000
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rot-angle 4s linear infinite;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .anim-fade-up,
   .marquee-track,
   .kenburns,
   .btn-pulse,
-  .anim-float {
+  .anim-float,
+  .glow-pulse,
+  .plan-featured::before {
     animation: none !important;
   }
   .anim-fade-up {

@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, ChevronDown, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, MapPin, MessageCircle, Star } from "lucide-react";
 import { IMAGES } from "../../data/site";
 import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
@@ -29,7 +29,7 @@ export function Hero() {
         <h1 className="anim-fade-up anim-d2 mt-5 font-display font-extrabold uppercase leading-[0.95] tracking-tight text-5xl md:text-7xl">
           Sua
           <br />
-          <span className="text-[#E60000] drop-shadow-[0_0_25px_rgba(230,0,0,0.45)]">
+          <span className="text-gradient-red glow-pulse">
             Metamorfose
           </span>
           <br />
@@ -43,13 +43,22 @@ export function Hero() {
         </p>
         <div className="anim-fade-up anim-d4 mt-8 flex flex-col sm:flex-row gap-3">
           <WhatsAppButton
+            size="lg"
             className="btn-pulse"
             href={whatsappLink(WA_MESSAGES.hero)}
           >
-            Matricule-se <ArrowRight size={16} />
+            Matricule-se <ArrowRight size={18} />
           </WhatsAppButton>
         </div>
-        <div className="anim-fade-up anim-d5 mt-6">
+        <div className="anim-fade-up anim-d5 mt-6 flex flex-wrap items-center gap-3">
+          <span className="anim-float inline-flex items-center gap-2 rounded-full border border-[#E60000]/60 bg-black/60 px-4 py-2 text-sm font-semibold shadow-[0_0_25px_rgba(230,0,0,0.35)]">
+            <span className="flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={14} className="fill-[#E60000] text-[#E60000]" />
+              ))}
+            </span>
+            5.0 · 53 avaliações no Google
+          </span>
           <span className="inline-flex items-center gap-2 text-sm border border-[#2A2A2A] bg-white/[0.06] rounded-full px-4 py-2">
             <CheckCircle2 size={18} className="text-[#E60000]" />
             <MessageCircle size={16} className="text-white/70" />

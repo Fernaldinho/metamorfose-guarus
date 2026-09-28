@@ -25,7 +25,7 @@ export function Modalidades() {
   return (
     <Section id="modalidades" className="py-16 md:py-24">
       <div className="reveal max-w-2xl">
-        <SectionTitle>
+        <SectionTitle eyebrow="Modalidades">
           Encontre <Red>seu ritmo.</Red>
         </SectionTitle>
         <p className="mt-4 text-[#B8B8B8]">
@@ -41,7 +41,7 @@ export function Modalidades() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="reveal group relative overflow-hidden rounded-[12px] border border-[#2A2A2A] hover:border-[#E60000] hover:-translate-y-1 transition-all duration-300"
+            className="reveal glow-card group relative overflow-hidden rounded-[12px] border border-[#2A2A2A] hover:border-[#E60000] hover:-translate-y-1 transition-all duration-300"
           >
             <img
               src={c.img}
