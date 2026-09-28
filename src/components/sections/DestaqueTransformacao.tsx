@@ -5,7 +5,7 @@ import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 export function DestaqueTransformacao() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section id="transformacao" className="relative w-full overflow-hidden">
       <img
         src={IMAGES.transform}
         alt="Pessoa evoluindo a cada treino"
@@ -13,7 +13,7 @@ export function DestaqueTransformacao() {
         height={800}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="kenburns absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-black/75" />
       <div className="relative mx-auto max-w-6xl px-4 md:px-8 py-20 md:py-28 text-center">

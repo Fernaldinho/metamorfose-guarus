@@ -6,6 +6,7 @@ import { DestaqueTransformacao } from "./components/sections/DestaqueTransformac
 import { Diferenciais } from "./components/sections/Diferenciais";
 import { Hero } from "./components/sections/Hero";
 import { Localizacao } from "./components/sections/Localizacao";
+import { Marquee } from "./components/sections/Marquee";
 import { Modalidades } from "./components/sections/Modalidades";
 import { NossaMetamorfose } from "./components/sections/NossaMetamorfose";
 import { Planos } from "./components/sections/Planos";
@@ -22,6 +23,7 @@ function App() {
       <main className="pt-[72px] md:pt-[80px]">
         {/* 1. IMPACTO */}
         <Hero />
+        <Marquee />
         {/* 2. CREDIBILIDADE */}
         <SocialProofBar />
         {/* 3. IDENTIDADE */}

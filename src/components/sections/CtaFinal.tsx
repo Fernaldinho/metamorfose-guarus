@@ -13,7 +13,7 @@ export function CtaFinal() {
         height={800}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="kenburns absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-black/75" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#B80000]/30 to-transparent" />

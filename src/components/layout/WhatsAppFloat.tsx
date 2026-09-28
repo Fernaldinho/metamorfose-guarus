@@ -34,7 +34,7 @@ export function WhatsAppFloat() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Fechar WhatsApp" : "Falar conosco no WhatsApp"}
-        className="group flex items-center gap-3 bg-[#E60000] hover:bg-[#FF0000] text-white rounded-[12px] pl-4 pr-4 md:pr-5 py-3 shadow-2xl transition-all"
+        className="btn-pulse group flex items-center gap-3 bg-[#E60000] hover:bg-[#FF0000] text-white rounded-[12px] pl-4 pr-4 md:pr-5 py-3 shadow-2xl transition-all"
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
         <span className="hidden md:inline font-display font-bold uppercase text-sm tracking-wide">

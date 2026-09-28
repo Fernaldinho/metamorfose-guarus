@@ -21,9 +21,9 @@ export function WhatsAppButton({
     size === "lg" ? "px-7 py-4 text-base" : "px-[22px] py-[14px] text-sm";
   const variants =
     variant === "primary"
-      ? "bg-[#E60000] text-white hover:bg-[#FF0000]"
+      ? "bg-[#E60000] text-white hover:bg-[#FF0000] btn-shine"
       : variant === "whatsapp"
-        ? "bg-[#E60000] text-white hover:bg-[#FF0000]"
+        ? "bg-[#E60000] text-white hover:bg-[#FF0000] btn-shine"
         : "bg-transparent border border-[#E60000] text-white hover:bg-[#E60000]";
   const width = block ? "w-full" : "";
   return (
