@@ -8,6 +8,7 @@ import { Diferenciais } from "./components/sections/Diferenciais";
 import { Hero } from "./components/sections/Hero";
 import { Localizacao } from "./components/sections/Localizacao";
 import { Marquee } from "./components/sections/Marquee";
+import { Matricula } from "./components/sections/Matricula";
 import { Modalidades } from "./components/sections/Modalidades";
 import { NossaMetamorfose } from "./components/sections/NossaMetamorfose";
 import { Planos } from "./components/sections/Planos";
@@ -38,6 +39,8 @@ function App() {
         <DestaqueTransformacao />
         {/* 7. CONVERSÃO */}
         <Planos />
+        {/* 7b. MATRÍCULA INTERATIVA */}
+        <Matricula />
         {/* 8. LOCALIZAÇÃO */}
         <Localizacao />
         {/* 9. PROVA SOCIAL */}

@@ -26,6 +26,14 @@ export const LOGO_SRC = "/logo.jpg";
 export const RATING_VALUE = "5.0";
 export const RATING_COUNT = 53;
 
+/** Opções do campo "Plano desejado" do formulário de matrícula. */
+export const MATRICULA_PLANOS = [
+  "[[PREENCHER: PLANO 1]]",
+  "[[PREENCHER: PLANO 2]]",
+  "[[PREENCHER: PLANO 3]]",
+  "Ainda não decidi — quero ajuda",
+];
+
 export const NAV_LINKS = [
   { label: "Início", href: "#inicio" },
   { label: "Modalidades", href: "#modalidades" },
