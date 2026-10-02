@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react";
 import { IMAGES } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 export function DestaqueTransformacao() {
@@ -24,8 +22,8 @@ export function DestaqueTransformacao() {
           <span className="text-[#E60000]">todos os dias.</span>
         </p>
         <div className="reveal mt-8 flex justify-center">
-          <WhatsAppButton size="lg" href={whatsappLink(WA_MESSAGES.transformacao)}>
-            Começar minha transformação <ArrowRight size={18} />
+          <WhatsAppButton size="lg" href="#matricula">
+            Começar minha transformação
           </WhatsAppButton>
         </div>
       </div>

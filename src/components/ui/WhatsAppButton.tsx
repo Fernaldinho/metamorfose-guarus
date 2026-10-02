@@ -15,6 +15,8 @@ export function WhatsAppButton({
   className = "",
   ...rest
 }: Props) {
+  const href = typeof rest.href === "string" ? rest.href : "";
+  const isAnchor = href.startsWith("#");
   const base =
     "inline-flex items-center justify-center gap-2 font-display font-bold uppercase tracking-wide rounded-[8px] transition-all duration-200 hover:scale-[1.02] focus-visible:outline-none";
   const sizes =
@@ -28,8 +30,8 @@ export function WhatsAppButton({
   const width = block ? "w-full" : "";
   return (
     <a
-      target="_blank"
-      rel="noopener noreferrer"
+      target={isAnchor ? undefined : "_blank"}
+      rel={isAnchor ? undefined : "noopener noreferrer"}
       className={`${base} ${sizes} ${variants} ${width} ${className}`}
       {...rest}
     >

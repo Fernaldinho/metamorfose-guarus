@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Menu, MessageCircle, X } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { LOGO_SRC, NAV_LINKS } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -73,20 +72,16 @@ export function Header() {
 
         {/* desktop CTA */}
         <a
-          href={whatsappLink(WA_MESSAGES.header)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center gap-2 bg-[#E60000] hover:bg-[#FF0000] text-white font-display font-bold uppercase text-sm tracking-wide px-[22px] py-[12px] rounded-[8px] transition-all hover:scale-[1.02]"
+          href="#matricula"
+          className="hidden lg:inline-flex items-center bg-[#E60000] hover:bg-[#FF0000] text-white font-display font-bold uppercase text-sm tracking-wide px-[22px] py-[12px] rounded-[8px] transition-all hover:scale-[1.02]"
         >
-          Matricule-se <ArrowRight size={16} />
+          Matricule-se
         </a>
 
         {/* mobile: contato direita */}
         <a
-          href={whatsappLink(WA_MESSAGES.menuMobile)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Falar no WhatsApp"
+          href="#matricula"
+          aria-label="Fazer matrícula"
           className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-[8px] bg-[#E60000] text-white"
         >
           <MessageCircle size={20} />
@@ -108,12 +103,11 @@ export function Header() {
               </a>
             ))}
             <a
-              href={whatsappLink(WA_MESSAGES.menuMobile)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 bg-[#E60000] text-white font-display font-bold uppercase px-5 py-4 rounded-[8px]"
+              href="#matricula"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center bg-[#E60000] text-white font-display font-bold uppercase px-5 py-4 rounded-[8px]"
             >
-              Quero treinar <ArrowRight size={16} />
+              Quero treinar
             </a>
           </nav>
         </div>

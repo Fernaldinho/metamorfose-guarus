@@ -1,6 +1,5 @@
-import { ArrowRight, CheckCircle2, ChevronDown, MapPin, MessageCircle, Star } from "lucide-react";
+import { CheckCircle2, ChevronDown, MapPin, MessageCircle, Star } from "lucide-react";
 import { IMAGES } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 export function Hero() {
@@ -45,9 +44,9 @@ export function Hero() {
           <WhatsAppButton
             size="lg"
             className="btn-pulse"
-            href={whatsappLink(WA_MESSAGES.hero)}
+            href="#matricula"
           >
-            Matricule-se <ArrowRight size={18} />
+            Matricule-se
           </WhatsAppButton>
         </div>
         <div className="anim-fade-up anim-d5 mt-6 flex flex-wrap items-center gap-3">

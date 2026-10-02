@@ -1,7 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  ArrowLeft,
-  ArrowRight,
   BatteryFull,
   Calendar,
   Check,
@@ -9,6 +7,7 @@ import {
   ChevronDown,
   CircleAlert,
   Dumbbell,
+  Fingerprint,
   HeartPulse,
   MessageCircle,
   Moon,
@@ -28,6 +27,8 @@ import {
   MATRICULA_INICIAL,
   MATRICULA_OBJETIVOS,
   buildMatriculaMessage,
+  maskCpf,
+  maskDate,
   maskPhone,
   matriculaProgress,
   validateMatricula,
@@ -109,41 +110,55 @@ function MatriculaForm({
       </Field>
 
       <div className="grid grid-cols-2 gap-3">
-        <Field id="mat-idade" label="Idade" error={errors.idade}>
+        <Field id="mat-nascimento" label="Data de nascimento" error={errors.nascimento}>
           <div className="relative">
             <Calendar size={16} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
             <input
-              id="mat-idade"
+              id="mat-nascimento"
               type="text"
               inputMode="numeric"
-              placeholder="Ex.: 22"
-              value={data.idade}
-              onChange={(e) =>
-                onChange("idade", e.target.value.replace(/\D/g, "").slice(0, 3))
-              }
-              aria-invalid={!!errors.idade}
+              placeholder="DD/MM/AAAA"
+              value={data.nascimento}
+              onChange={(e) => onChange("nascimento", maskDate(e.target.value))}
+              aria-invalid={!!errors.nascimento}
               className={`${INPUT_CLASS} pl-10`}
             />
           </div>
         </Field>
 
-        <Field id="mat-whatsapp" label="WhatsApp" error={errors.whatsapp}>
+        <Field id="mat-cpf" label="CPF" error={errors.cpf}>
           <div className="relative">
-            <Phone size={16} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+            <Fingerprint size={16} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
             <input
-              id="mat-whatsapp"
-              type="tel"
-              inputMode="tel"
-              autoComplete="tel"
-              placeholder="(22) 99999-9999"
-              value={data.whatsapp}
-              onChange={(e) => onChange("whatsapp", maskPhone(e.target.value))}
-              aria-invalid={!!errors.whatsapp}
+              id="mat-cpf"
+              type="text"
+              inputMode="numeric"
+              placeholder="000.000.000-00"
+              value={data.cpf}
+              onChange={(e) => onChange("cpf", maskCpf(e.target.value))}
+              aria-invalid={!!errors.cpf}
               className={`${INPUT_CLASS} pl-10`}
             />
           </div>
         </Field>
       </div>
+
+      <Field id="mat-whatsapp" label="WhatsApp" error={errors.whatsapp}>
+        <div className="relative">
+          <Phone size={16} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30" />
+          <input
+            id="mat-whatsapp"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder="(22) 99999-9999"
+            value={data.whatsapp}
+            onChange={(e) => onChange("whatsapp", maskPhone(e.target.value))}
+            aria-invalid={!!errors.whatsapp}
+            className={`${INPUT_CLASS} pl-10`}
+          />
+        </div>
+      </Field>
 
       <Field id="mat-plano" label="Plano desejado" error={errors.plano}>
         <div className="relative">
@@ -253,9 +268,9 @@ function MatriculaForm({
 
       <button
         type="submit"
-        className="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-[8px] bg-[#E60000] px-[22px] py-[15px] font-display text-sm font-bold uppercase tracking-wide text-white transition-all duration-200 hover:scale-[1.02] hover:bg-[#FF0000]"
+        className="btn-shine inline-flex w-full items-center justify-center rounded-[8px] bg-[#E60000] px-[22px] py-[15px] font-display text-sm font-bold uppercase tracking-wide text-white transition-all duration-200 hover:scale-[1.02] hover:bg-[#FF0000]"
       >
-        Gerar minha matrícula <ArrowRight size={16} />
+        Gerar minha matrícula
       </button>
     </form>
   );
@@ -320,9 +335,9 @@ function MatriculaPreview({
       <button
         type="button"
         onClick={onEdit}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-[8px] border border-[#2A2A2A] px-[22px] py-[13px] font-display text-sm font-bold uppercase tracking-wide text-white/80 transition-colors hover:border-[#E60000] hover:text-white"
+        className="inline-flex w-full items-center justify-center rounded-[8px] border border-[#2A2A2A] px-[22px] py-[13px] font-display text-sm font-bold uppercase tracking-wide text-white/80 transition-colors hover:border-[#E60000] hover:text-white"
       >
-        <ArrowLeft size={16} /> Voltar e editar dados
+        Voltar e editar dados
       </button>
     </div>
   );
@@ -335,6 +350,19 @@ export function Matricula() {
 
   const progress = useMemo(() => matriculaProgress(data), [data]);
 
+  // "Quero esse plano" (seção Planos) pré-seleciona o plano no formulário
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const plano = (e as CustomEvent<string>).detail;
+      if (plano && MATRICULA_PLANOS.includes(plano)) {
+        setData((d) => ({ ...d, plano }));
+        setErrors((prev) => ({ ...prev, plano: undefined }));
+      }
+    };
+    window.addEventListener("matricula-plano", handler);
+    return () => window.removeEventListener("matricula-plano", handler);
+  }, []);
+
   const update = (key: keyof MatriculaData, value: string) => {
     setData((d) => ({ ...d, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
@@ -344,9 +372,7 @@ export function Matricula() {
     const errs = validateMatricula(data);
     setErrors(errs);
     if (Object.keys(errs).length > 0) {
-      const first = (
-        Object.keys(errs) as (keyof MatriculaData)[]
-      )[0];
+      const first = Object.keys(errs)[0] as keyof MatriculaData;
       document.getElementById(`mat-${first}`)?.focus();
       return;
     }

@@ -1,5 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
+import { Check } from "lucide-react";
 import { Red, Section, SectionTitle } from "../ui/Section";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
 
@@ -70,9 +69,14 @@ export function Planos() {
               block
               variant={p.featured ? "primary" : "outline"}
               className="mt-6"
-              href={whatsappLink(WA_MESSAGES.plano(p.name))}
+              href="#matricula"
+              onClick={() => {
+                window.dispatchEvent(
+                  new CustomEvent<string>("matricula-plano", { detail: p.name }),
+                );
+              }}
             >
-              Quero esse plano <ArrowRight size={16} />
+              Quero esse plano
             </WhatsAppButton>
           </div>
         ))}

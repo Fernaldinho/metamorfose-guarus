@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react";
 import { IMAGES } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { Red, Section, SectionTitle } from "../ui/Section";
 
 const CARDS = [
@@ -36,11 +34,8 @@ export function Modalidades() {
         {CARDS.map((c) => (
           <a
             key={c.title}
-            href={whatsappLink(
-              `Olá! Quero saber mais sobre ${c.title} na Academia Metamorfose Guarus.`,
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#matricula"
+            aria-label={`${c.title} — fazer matrícula`}
             className="reveal glow-card group relative overflow-hidden rounded-[12px] border border-[#2A2A2A] hover:border-[#E60000] hover:-translate-y-1 transition-all duration-300"
           >
             <img
@@ -53,21 +48,14 @@ export function Modalidades() {
               className="h-72 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent group-hover:bg-black/60 transition-colors" />
-            <div className="absolute bottom-0 p-5 w-full flex items-end justify-between gap-3">
-              <div>
-                <p className="h-1 w-10 bg-[#E60000] rounded mb-3" />
-                <h3 className="font-display font-extrabold uppercase text-xl">{c.title}</h3>
-                <p className="mt-1 text-sm text-[#B8B8B8]">{c.desc}</p>
-              </div>
-              <ArrowRight
-                size={20}
-                className="shrink-0 text-[#E60000] transition-transform group-hover:translate-x-1"
-              />
+            <div className="absolute bottom-0 p-5 w-full">
+              <p className="h-1 w-10 bg-[#E60000] rounded mb-3" />
+              <h3 className="font-display font-extrabold uppercase text-xl">{c.title}</h3>
+              <p className="mt-1 text-sm text-[#B8B8B8]">{c.desc}</p>
             </div>
           </a>
         ))}
       </div>
-      <p className="sr-only">{WA_MESSAGES.conheca}</p>
     </Section>
   );
 }

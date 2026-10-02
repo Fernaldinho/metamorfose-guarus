@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react";
 import { IMAGES } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
 
 export function CtaFinal() {
@@ -23,8 +21,8 @@ export function CtaFinal() {
         </h2>
         <p className="reveal mt-4 text-[#B8B8B8] text-lg">Dê o primeiro passo hoje.</p>
         <div className="reveal mt-8 flex justify-center">
-          <WhatsAppButton size="lg" href={whatsappLink(WA_MESSAGES.ctaFinal)}>
-            Quero começar <ArrowRight size={18} />
+          <WhatsAppButton size="lg" href="#matricula">
+            Quero começar
           </WhatsAppButton>
         </div>
       </div>

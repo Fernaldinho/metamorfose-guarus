@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin, MessageCircle, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import {
   ADDRESS_CEP,
   ADDRESS_CITY,
@@ -9,7 +9,6 @@ import {
   MAPS_URL,
   PHONE_RAW,
 } from "../../data/site";
-import { WA_MESSAGES, whatsappLink } from "../../lib/whatsapp";
 import { Red, Section, SectionTitle } from "../ui/Section";
 import { WhatsAppButton } from "../ui/WhatsAppButton";
 
@@ -37,11 +36,11 @@ export function Localizacao() {
             <Phone size={16} className="text-[#E60000]" /> {PHONE_RAW}
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <WhatsAppButton href={whatsappLink(WA_MESSAGES.comoChegar)}>
-              Como chegar <ArrowRight size={16} />
+            <WhatsAppButton href="#matricula">
+              Como chegar
             </WhatsAppButton>
-            <WhatsAppButton variant="outline" href={whatsappLink(WA_MESSAGES.faleConosco)}>
-              <MessageCircle size={16} /> Fale conosco
+            <WhatsAppButton variant="outline" href="#matricula">
+              Fale conosco
             </WhatsAppButton>
           </div>
         </div>
